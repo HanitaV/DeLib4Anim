@@ -1,0 +1,55 @@
+[build-system]
+requires = ["scikit-build-core>=0.10", "pybind11>=2.13"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "stem-engine"
+version = "0.1.0a1"
+description = "Native GPU STEM animation engine (Python authoring -> C++20 -> OpenGL 4.5 -> CUDA -> NVENC)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+stem-engine = "stem_engine.cli:main"
+
+[dependency-groups]
+build = [
+    "nvidia-cuda-nvrtc==13.5.37",
+    "pybind11==3.1.0",
+    "scikit-build-core==1.1.2",
+]
+dev = [
+    "numpy>=2.0",
+    "pillow>=11.0",
+    "pytest>=8.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.8",
+    "ty>=0.0.112",
+]
+
+[tool.scikit-build]
+cmake.version = ">=3.25"
+cmake.build-type = "Release"
+wheel.packages = ["src/stem_engine"]
+
+[tool.scikit-build.cmake.define]
+CMAKE_C_COMPILER = "cl"
+CMAKE_CXX_COMPILER = "cl"
+STEM_ENABLE_SKIA = "ON"
+STEM_BUILD_CLI = "OFF"
+STEM_BUILD_TESTS = "OFF"
+STEM_BUILD_PYTHON = "ON"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "examples", "tests", "tools"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "src"]

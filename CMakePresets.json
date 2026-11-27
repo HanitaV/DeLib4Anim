@@ -1,0 +1,83 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-release",
+      "displayName": "Windows x64 Release (Ninja)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
+        "STEM_BUILD_CLI": "ON",
+        "STEM_BUILD_TESTS": "ON",
+        "STEM_BUILD_PYTHON": "OFF"
+      }
+    },
+    {
+      "name": "windows-relwithdebinfo",
+      "displayName": "Windows x64 RelWithDebInfo (Profiling / Sanitizer)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/relwithdebinfo",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
+        "STEM_BUILD_CLI": "ON",
+        "STEM_BUILD_TESTS": "ON",
+        "STEM_BUILD_PYTHON": "OFF"
+      }
+    },
+    {
+      "name": "windows-msvc-skia",
+      "displayName": "Windows x64 MSVC Release + Skia Ganesh",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/msvc-skia",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "STEM_ENABLE_SKIA": "ON",
+        "STEM_BUILD_CLI": "ON",
+        "STEM_BUILD_TESTS": "ON",
+        "STEM_BUILD_PYTHON": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-release",
+      "configurePreset": "windows-release"
+    },
+    {
+      "name": "windows-relwithdebinfo",
+      "configurePreset": "windows-relwithdebinfo"
+    },
+    {
+      "name": "windows-msvc-skia",
+      "configurePreset": "windows-msvc-skia"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "windows-release",
+      "configurePreset": "windows-release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "windows-msvc-skia",
+      "configurePreset": "windows-msvc-skia",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

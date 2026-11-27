@@ -1,0 +1,28 @@
+# Build artifacts
+build/
+dist/
+_skbuild/
+*.egg-info/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.dll
+*.so
+*.dylib
+*.exe
+*.obj
+*.o
+
+# Generated outputs & caches
+outputs/
+.stem_cache/
+.pytest_cache/
+.ruff_cache/
+*.mp4
+*.mkv
+*.wav
+*.nvcudmp
+*.nsys-rep
+*.ncu-rep

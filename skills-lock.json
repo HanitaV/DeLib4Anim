@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "skills": {
+    "compute-sanitizer-diagnose-cuda-bugs": {
+      "source": "NVIDIA/skills",
+      "commit": "d90390a08ce6105c45938785fb07864ee6011af5",
+      "sourceType": "github",
+      "skillPath": "skills/compute-sanitizer-diagnose-cuda-bugs/SKILL.md",
+      "computedHash": "b9c1f1a58a357bdee41473b01644490b29f05fa48c6752f63ac56cbb9ac98061",
+      "installMode": "copy"
+    },
+    "modern-cpp": {
+      "source": "trailofbits/skills",
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
+      "sourceType": "github",
+      "skillPath": "plugins/modern-cpp/skills/modern-cpp/SKILL.md",
+      "computedHash": "33d005f91709c390b9bfe1da5fe5268307f04855afc967d5b7fb544f501b7425",
+      "installMode": "copy"
+    },
+    "modern-python": {
+      "source": "trailofbits/skills",
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
+      "sourceType": "github",
+      "skillPath": "plugins/modern-python/skills/modern-python/SKILL.md",
+      "computedHash": "6f78e1948cc291dfc71672a87f83a02de3cec01545ed289312ce432d129ec00b",
+      "installMode": "copy"
+    },
+    "shader-programming": {
+      "source": "gamedev-skills/awesome-gamedev-agent-skills",
+      "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+      "sourceType": "github",
+      "skillPath": "skills/disciplines/shader-programming/SKILL.md",
+      "computedHash": "f5722dbca5e9fa6a8954f79e7735ff244c22702f59b0b7c3f9f6bdd5beabba18",
+      "installMode": "copy"
+    }
+  }
+}
